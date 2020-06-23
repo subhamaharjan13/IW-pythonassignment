@@ -12,6 +12,8 @@ def replace(string):
             result = string + 'ly'
         else:
             result = string + 'ing'
+    else:
+        result = string
 
     return result
         
