@@ -3,7 +3,7 @@
 data1 = [1,3,5,7,9,10]
 data2 = [2,4,6,8]
 
-result_list = data1[:-1] + data2
+data1 = data1[:-1] + data2
 
-print(result_list)
+print(data1)
 
