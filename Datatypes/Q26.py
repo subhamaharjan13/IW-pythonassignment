@@ -4,10 +4,5 @@ sample_list = [1,2,3,4]
 
 character = 'emp'
 
-result_list = []
-
-for i in sample_list:
-    i = character + str(i)
-    result_list.append(i)
-
+result_list = list(map(lambda x: character + str(x) , sample_list)) 
 print(result_list)
