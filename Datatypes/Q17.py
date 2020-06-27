@@ -2,8 +2,8 @@
 
 from functools import reduce
 
-def add(x, y):
+def mul(x, y):
     return x * y
 
 data = [2, 4, 7, 3]
-print(reduce(add, data))
+print(reduce(mul, data))
