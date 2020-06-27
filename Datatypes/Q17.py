@@ -1,9 +1,9 @@
 # Write a Python program to multiplies all the items in a list.
 
-data = ['5', '8','10','15','20','12']
+from functools import reduce
 
-mul = 1
-for i in data:
-    mul = mul * int(i)
+def add(x, y):
+    return x * y
 
-print(mul)
+data = [2, 4, 7, 3]
+print(reduce(add, data))
