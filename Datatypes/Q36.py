@@ -2,8 +2,6 @@
 
 item = {'a': 20, 'b': 30, 'c':70}
 
-sum = 0
-for i in item.values():
-    sum = sum + i
+result = sum(item.values())
 
-print(sum)
+print(result)
