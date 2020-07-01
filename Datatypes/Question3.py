@@ -3,6 +3,4 @@
 
 string = 'restart'
 
-result_string = string[0]+ string[1:].replace(string[0], "$")
-
-print(result_string)
+print("Result string: ",string[0]+ string[1:].replace(string[0], "$"))
