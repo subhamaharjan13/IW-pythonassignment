@@ -5,5 +5,4 @@ sample_list = [1,2,3,3,3,3,4,5]
 def unique(list):
     return set(list)
 
-unique_list = list(unique(sample_list))
-print(unique_list)
+print("unique list:",list(unique(sample_list)))
