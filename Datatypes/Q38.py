@@ -2,6 +2,4 @@
 
 item = {'a': 20, 'b': 30, 'c':70}
 
-removed_key = item.pop('a') 
-
-print(item)
+print("Dictionary after removing a key : ",item.pop('a'))
