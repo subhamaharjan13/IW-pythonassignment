@@ -6,5 +6,4 @@ second_string = 'xyz'
 char1 = first_string.replace(first_string[0:2],second_string[0:2])
 char2 = second_string.replace(second_string[0:2],first_string[0:2])
 
-final_string = char1 + " " + char2
-print(final_string)
+print("final string:", char1 + " " + char2)
