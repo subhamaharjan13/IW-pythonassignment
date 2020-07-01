@@ -2,6 +2,4 @@
 
 data = [5, 12, 17, 18, 24, 32]
 
-result = list(filter(lambda x:x>15, data))
-
-print(result)
+print(list(filter(lambda x:x>15, data)))
