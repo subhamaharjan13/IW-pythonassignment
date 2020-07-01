@@ -2,6 +2,4 @@
 
 dict_data = {0:10,1:20}
 
-result_dict = {**dict_data, 2:30}
-
-print(result_dict)
+print("dict_data after adding a key '2:30':", {**dict_data, 2:30})
