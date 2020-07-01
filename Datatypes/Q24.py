@@ -2,6 +2,4 @@
 
 data = ['red','blue','pink','yellow','black']
 
-resultlist = data.copy()
-
-print(resultlist)
+print(data.copy())
