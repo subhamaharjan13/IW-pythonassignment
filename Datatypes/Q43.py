@@ -6,6 +6,4 @@ tuple_to_list = list(tuple_data)
 
 removed_data = tuple_to_list.pop(1)
 
-result_data = tuple(tuple_to_list)
-
-print(result_data)
+print("Tuple data:",tuple(tuple_to_list))
