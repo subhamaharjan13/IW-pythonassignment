@@ -4,6 +4,4 @@ tuple_data = ('kathmandu','delhi', 'california')
 
 new_value = 'seoul'
 
-updated_data = tuple_data + (new_value,)
-
-print(updated_data)
+print("Tuple data:", tuple_data + (new_value,))
