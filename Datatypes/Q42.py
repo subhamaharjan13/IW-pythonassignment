@@ -2,6 +2,4 @@
 
 sample_list = ['a','b','c','d','e']
 
-result_data = tuple(sample_list)
-
-print(result_data)
+print("List to tuple:",tuple(sample_list))
