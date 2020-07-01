@@ -2,6 +2,4 @@
 
 tuple_data = ('abc','bcd','cad','dab')
 
-result_data = ''.join(tuple_data)
-
-print(result_data)
+print("Tuple converted into a string: ",''.join(tuple_data))
