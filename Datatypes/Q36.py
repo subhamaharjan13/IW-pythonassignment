@@ -2,6 +2,4 @@
 
 item = {'a': 20, 'b': 30, 'c':70}
 
-result = sum(item.values())
-
-print(result)
+print("Sum of all items of dictionary is",sum(item.values()))
