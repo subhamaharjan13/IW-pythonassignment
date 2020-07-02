@@ -4,10 +4,8 @@
 nameList = ["Joey","Chandler","Paul","Monica","Ross","Phoebe","Rachel"]
 
 for x in range(len(nameList)):
-    if "John" in nameList[x]:
+    if "john" in nameList[x].lower():
         print("John exists")
-    if "John" not in nameList[x] and x == len(nameList) - 1:
+        break
+    elif "John" not in nameList[x].lower() and x == len(nameList) - 1:
         print("Not found")
-
-    
-
