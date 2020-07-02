@@ -7,5 +7,5 @@ for x in range(len(nameList)):
     if "john" in nameList[x].lower():
         print("John exists")
         break
-    elif "John" not in nameList[x].lower() and x == len(nameList) - 1:
+    elif "john" not in nameList[x].lower() and x == len(nameList) - 1:
         print("Not found")
