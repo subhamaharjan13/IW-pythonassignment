@@ -1,0 +1,16 @@
+# Write a function that takes camel-cased strings (i.e. ThisIsCamelCased), and converts them to snake case 
+# (i.e.this_is_camel_cased). Modify the function by adding an argument, separator, so it will also convert to the kebab case
+# (i.e.this-is-camel-case) as well.
+
+import re
+
+def camel_cased_to_snake(string):
+    string = re.sub(r'(?<!^)(?=[A-Z])', '_', string).lower()
+    return string
+
+def camel_cased_to_kebab(string):
+    string = re.sub(r'(?<!^)(?=[A-Z])', '-', string).lower()
+    return string
+
+print(camel_cased_to_snake("ThisIsCamelCased"))
+print(camel_cased_to_kebab("ThisIsCamelCased"))
