@@ -14,7 +14,7 @@ elif op == "*":
 elif op == '/':
     try:
         print(num1 / num2)
-    except Exception as e:
+    except ZeroDivisionError as e:
         print(e)
 else:
     print("Invalid Operator")
