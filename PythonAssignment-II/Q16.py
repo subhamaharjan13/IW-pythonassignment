@@ -41,10 +41,10 @@ class SuperMario:
             print("Down =",self.go_down)
 
         def levelComplete(self):
-            if self.move_right + self.move_left + self.go_down + self.go_up >= 10:
+            if self.move_right + self.move_left + self.go_down + self.go_up >= 15:
                 print("Level Completed")
-
-
+            elif self.move_right + self.move_left + self.go_down + self.go_up < 15:
+                print("You need to go a little bit further to complete the level")
 
 mario = SuperMario()
 SuperMario.characterInfo()
