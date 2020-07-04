@@ -11,6 +11,7 @@ class SuperMario:
         self.level = 3
         self.move = self.Movements()
 
+    # display level and movements of character
     def display(self):
         maxlevel = 5
         if self.level < maxlevel:
@@ -23,28 +24,25 @@ class SuperMario:
 
     @classmethod
     def characterInfo(cls):
-        print("Your character name is",cls.name)
-        print("Your character color is",cls.color)
+        print("Your character name is {} \nYour character color is {}"
+                .format(cls.name,cls.color))
 
-
-    class Movements:                                                    #Inner Class
+    #Inner Class
+    class Movements:
         def __init__(self):
-            self.move_right = 3
-            self.move_left = 4
-            self.go_up = 2
-            self.go_down = 1
+            self.move_right,self.move_left = 3, 4
+            self.go_up, self.go_down = 2, 1
 
         def displayMovements(self):
-            print("Move Right =",self.move_right)
-            print("Move Left =",self.move_left)
-            print("Jump =",self.go_up)
-            print("Down =",self.go_down)
+            print("Move Right = {} \nMove Left = {} \nJump = {} \nDown = {}"
+                        .format(self.move_right,self.move_left,self.go_up,self.go_down))
 
         def levelComplete(self):
             if self.move_right + self.move_left + self.go_down + self.go_up >= 15:
                 print("Level Completed")
             elif self.move_right + self.move_left + self.go_down + self.go_up < 15:
                 print("You need to go a little bit further to complete the level")
+
 
 mario = SuperMario()
 SuperMario.characterInfo()
