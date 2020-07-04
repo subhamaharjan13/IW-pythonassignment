@@ -4,10 +4,13 @@
 
 import json
 
-# print(dir(json))                                # provides the inbuilt function of json
-# print(help(json))                               # provides the detailed information on how to use the module
+ # provides the detailed information on how to use the module     
+print(help(json))                              
 
-jsondata = json.dumps({'name':'Subha','age':22})   # converts the dictionary to json string
-print(type(jsondata))
-dictdata = json.loads(jsondata)                    # converts the json string to python dictionary
+# converts the dictionary to json string
+jsondata = json.dumps({'name':'Subha','age':22})
+
+# converts the json string to python dictionary
+dictdata = json.loads(jsondata)
+
 print(type(dictdata))
