@@ -14,5 +14,5 @@ def camel_cased_to_kebab(string):
     string = re.sub(r'(?<!^)(?=[A-Z])', '-', string).lower()
     return string
 
-print(camel_cased_to_snake("ThisIsCamelCased"))
-print(camel_cased_to_kebab("ThisIsCamelCased"))
+print("Snake case = {} \nKebab case = {}"
+        .format(camel_cased_to_snake("ThisIsCamelCased"),camel_cased_to_kebab("ThisIsCamelCased")))
