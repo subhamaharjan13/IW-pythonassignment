@@ -5,11 +5,13 @@
 # key parameter to sort by any field in the tuple, first name, last name,
 # or age.
 
-my_name = ("Subha","Maharjan",22)
+myName = ("Subha","Maharjan",22)
 name1 = ("Ram","Tuladhar",24)
 name2 = ("Hari","Shrestha",27)
 name3 = ("Arjun","Tamrakar",18)
 
-people = list((my_name,)+(name1,)+(name2,)+(name3,))
+# Append the tuples to a list
+people = list((myName,)+(name1,)+(name2,)+(name3,))
 
+# Sort the list by last name field in the tuple
 print("Sorted by second field, lastname:",sorted(people, key=lambda tup: tup[1]))
