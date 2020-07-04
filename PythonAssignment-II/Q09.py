@@ -4,13 +4,17 @@
 def binarySearch(list, start, stop, item):
     while start <= stop:
         mid = start + (stop - start)
-        if list[mid] == item:                     # Check if x is present at mid 
-            return mid 
-        elif list[mid] < item:                    # If x is greater, ignore left half 
+        # Check if x is present at mid 
+        if list[mid] == item:                     
+            return mid
+        # If x is greater, ignore left half 
+        elif list[mid] < item:                   
             start = mid + 1
-        else:                                     # If x is smaller, ignore right half 
+        # If x is smaller, ignore right half 
+        else:                                     
             stop = mid - 1
-    return -1                                     # If we reach here, then the element was not present 
+    # If we reach here, then the element was not present 
+    return -1                                     
 
 numbers = [0,99,2,6,4,8,12,13,17,15]
 item = 99
