@@ -5,15 +5,18 @@
 personalInfo = [('subha','maharjan',22),('ram','tuladhar',None),
                     ('hari','shrestha',18),('rohan','shakya',None)]
 
+# list without None values
 personalInfoWithoutNone = [i for i in personalInfo if i[2] != None]
 
+# list with only age values
 age_list = [i[2] for i in personalInfoWithoutNone if i[2]] 
-# age_list = [i[2] for i in personalInfo if i[2] is not None]                       #this can be done as well
 
+# calculate average of age
 averageAge = sum(age_list)/len(age_list)
 
-for i in personalInfoWithoutNone:
-    if i[2] > averageAge:
-        print("Older:",i)
+# print the name below and above average age
+for age in personalInfoWithoutNone:
+    if age[2] > averageAge:
+        print("Older:",age)
     else:
-        print("Younger",i)
+        print("Younger",age)
