@@ -4,8 +4,6 @@
 
 filename = "README.txt"
 
-print("File name = ", filename)
-
-print("The extension is = ", filename[filename.index('.')+1:])
-
-print("Filename Without Extension =", filename[0:filename.index('.')])
+# using slice operation to print the extension of file and the file name without extension
+print("File name = {} \nThe extension is = {} \nFilename Without Extension = {}"
+            .format(filename,filename[filename.index('.')+1:],filename[0:filename.index('.')]))
