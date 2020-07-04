@@ -4,6 +4,8 @@ nameList = []
 
 nameList.extend(["Ram","Sita","Gita","Hari","Krishna"])
 
+# sort the list and make it iterable
 my_iter = iter(sorted(nameList))
+
 print("First item of list:",my_iter.__next__())
 print("Second item of list:",my_iter.__next__())
