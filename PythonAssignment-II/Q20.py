@@ -3,6 +3,7 @@
 # Output : [[-10, 2, 8], [-7, -3, 10]]
 
 class Realsum:
+    # sum three elements of list to make zero
     def sum_to_zero(self, number):
         number = sorted(number)
         result = []
