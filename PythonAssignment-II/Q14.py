@@ -8,7 +8,10 @@ import csv
 
 data = []
 
+# read the csv data to dictionary object
 values = csv.DictReader(open("assignment.csv"))
+
+# print the dictionary data to list of dictionary
 for i in values:
     data.append(i)
 
