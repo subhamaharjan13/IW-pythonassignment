@@ -4,10 +4,12 @@
 
 import re
 
+# convert the camel cased string to snake case
 def camel_cased_to_snake(string):
     string = re.sub(r'(?<!^)(?=[A-Z])', '_', string).lower()
     return string
 
+# convert the camel cased string to kebab string
 def camel_cased_to_kebab(string):
     string = re.sub(r'(?<!^)(?=[A-Z])', '-', string).lower()
     return string
