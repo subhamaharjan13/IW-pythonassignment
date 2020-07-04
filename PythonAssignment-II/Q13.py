@@ -11,6 +11,7 @@ import csv
 
 data = [('George', '4312 Abbey Road', 22), ('John', '54 Love Ave', 21)]
 
+# write the list of tuples in a csv file
 with open('assignment.csv','w') as csv_file:
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['Name','Address','Age'])
