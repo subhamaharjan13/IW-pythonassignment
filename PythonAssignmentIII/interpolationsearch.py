@@ -3,8 +3,8 @@ def interpolationSearch(list, n, x):
     low = 0
     high = (n - 1) 
    
-    # Since listay is sorted, an element present 
-    # in listay must be in range defined by corner 
+    # Since list is sorted, an element present 
+    # in list must be in range defined by corner 
     while(low <= high and x >= list[low] and x <= list[high]): 
         if low == high: 
             if list[low] == x:  
