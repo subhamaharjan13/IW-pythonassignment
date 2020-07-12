@@ -15,7 +15,7 @@ class Courses:
 
     def listToCsv(self):
         keys = self.coursesList[0].keys()
-        with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/course.csv', 'w') as write_file:
+        with open('csvfiles/course.csv', 'w') as write_file:
             dict_writer = csv.DictWriter(write_file, keys)
             dict_writer.writeheader()
             dict_writer.writerows(self.coursesList)

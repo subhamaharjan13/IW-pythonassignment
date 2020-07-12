@@ -24,7 +24,7 @@ class Student:
     def existingStudentInfo(self):
         existingname = (self.name).title()
         details = list()
-        with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv','r') as read_file:
+        with open('csvfiles/list.csv','r') as read_file:
             csv_reader = csv.reader(read_file)
             for _, row in enumerate(csv_reader):
                 if row[0] == existingname:
@@ -50,10 +50,10 @@ class Academy(Student):
 
         if choice == 2:
             newRegisteredInfo = self.addInfo()
-            with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv','a') as write_file:
+            with open('csvfiles/list.csv','a') as write_file:
                 csv_writer = csv.writer(write_file)
                 headers = ['Name','Age','Course','Balance']
-                fileEmpty = os.stat('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv').st_size == 0
+                fileEmpty = os.stat('csvfiles/list.csv').st_size == 0
                 if fileEmpty:
                     csv_writer.writerow(headers)
                 csv_writer.writerow(newRegisteredInfo)
@@ -79,7 +79,7 @@ class Academy(Student):
 
     def totalDue(self):
         data = list()
-        with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv', 'r') as readFile:
+        with open('csvfiles/list.csv', 'r') as readFile:
             reader = csv.reader(readFile)
             for row in reader:
                 data.append(row)
@@ -97,7 +97,7 @@ class Academy(Student):
             name = (self.name).title()
 
             lines = list()
-            with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv', 'r') as readFile:
+            with open('csvfiles/list.csv', 'r') as readFile:
                 reader = csv.reader(readFile)
                 for row in reader:
                     lines.append(row)
@@ -110,7 +110,7 @@ class Academy(Student):
             else:
                 print(f"Your payment {balance} has been refunded")
 
-            with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv', 'w') as writeFile:
+            with open('csvfiles/list.csv', 'w') as writeFile:
                 writer = csv.writer(writeFile)
                 writer.writerows(result_list)
             
