@@ -1,20 +1,10 @@
 import csv
 import sys
 import os.path
+import courses as cs
+import deposit as dep
 
-class Academy:
-
-    coursesList = [{"Course": "C", "Duration": "3 weeks", "Time": "2hr"},
-                {"Course": "C++", "Duration": "3.5 weeks", "Time": "2.5hr"},
-                {"Course": "C#", "Duration": "2 weeks", "Time": "1.5hr"},
-                {"Course": ".NET", "Duration": "2.5 weeks", "Time": "1.5hr"},
-                {"Course": "JAVA", "Duration": "3.5 weeks", "Time": "2.5hr"},
-                {"Course": "JAVASCRIPT", "Duration": "2.5 weeks", "Time": "2hr"},
-                {"Course": "PYTHON", "Duration": "2 weeks", "Time": "1hr"},
-                {"Course": "R", "Duration": "4 weeks", "Time": "2hr"}
-                ]
-
-    totalCourseBalance = 20000
+class Student:
 
     def __init__(self,name):
         self.name = name
@@ -31,35 +21,13 @@ class Academy:
     def existingStudentInfo(self):
         existingname = (self.name).title()
         details = list()
-        with open('list.csv','r') as read_file:
+        with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv','r') as read_file:
             csv_reader = csv.reader(read_file)
             for _, row in enumerate(csv_reader):
                 if row[0] == existingname:
                     details = row
             
         return details
-
-    # display the course info
-    def courseInfo(self):
-        courseName = (input("Enter the course name:")).upper()
-        course = next((item for item in self.coursesList if item["Course"] == courseName), None)
-        if (course is not None):
-            print(f"Course Details: \nCourse: {course.get('Course')}\
-                    \nDuration:{course.get('Duration')} \nTime: {course.get('Time')}")
-        else:
-            print(f"Sorry,We have no such course in our academy")
-
-    # calculate the remaining balance  
-    def deposit(self):
-        print(f"Total cost of the course is Rs. {self.totalCourseBalance}.\
-            \nYou can pay the full amount at once or You can pay 50% in the first month and rest in the later month.")
-        amount = int(input("Enter the amount you want to deposit: "))
-        if amount == 10000:
-            due = self.totalCourseBalance - amount
-        elif amount == self.totalCourseBalance:
-            due = 0
-
-        return due
 
     # leave the program and delete the info from csv file
     def leaveProgram(self):
@@ -68,14 +36,14 @@ class Academy:
             name = (self.name).title()
 
             lines = list()
-            with open('list.csv', 'r') as readFile:
+            with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv', 'r') as readFile:
                 reader = csv.reader(readFile)
                 for row in reader:
                     lines.append(row)
 
-            result_list = [(x, y, z) for x, y, z in lines if x != name]
+            result_list = [(stdname, stdage, stdcourse) for stdname, stdage, stdcourse in lines if stdname != name]
 
-            with open('list.csv', 'w') as writeFile:
+            with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv', 'w') as writeFile:
                 writer = csv.writer(writeFile)
                 writer.writerows(result_list)
             
@@ -83,6 +51,9 @@ class Academy:
 
         elif verify == 'no':
             print("You are still in our Academy. Thank You")
+
+
+class Academy(Student):
 
     # choose the option from menu
     def menu(self):
@@ -93,27 +64,27 @@ class Academy:
         if choice == 1:
             info = self.existingStudentInfo()
             if info == []:
-                print(f"We don't have a student named {(self.name).title()} in our academy")
+                print(f"Sorry, We don't have a student named {(self.name).title()} in our academy")
             else:
                 print(info) 
 
         if choice == 2:
             newRegisteredInfo = self.addInfo()
-            with open('list.csv','a') as write_file:
+            with open('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv','a') as write_file:
                 csv_writer = csv.writer(write_file)
                 headers = ['Name','Age','Course']
-                fileEmpty = os.stat('list.csv').st_size == 0
+                fileEmpty = os.stat('PythonAssignmentIII/IT_ACADEMY/csvfiles/list.csv').st_size == 0
                 if fileEmpty:
                     csv_writer.writerow(headers)
                 csv_writer.writerow(newRegisteredInfo)
 
-                print("Welcome to our Academy.You have been registered")
+                print("Congratulations.You have been registered")
 
         if choice == 3:
-            return self.courseInfo()
-
+            return cs.Courses().courseInfo()
+            
         if choice == 4:
-            due = self.deposit()
+            due = dep.Deposit().payment()
             if due == 0:
                 print("You have no remaining dues")
             else:
@@ -129,5 +100,5 @@ class Academy:
 
 
 studentName = input("Enter your Name:")
-student = Academy(studentName)
-student.menu()
+main = Academy(studentName)
+main.menu()
