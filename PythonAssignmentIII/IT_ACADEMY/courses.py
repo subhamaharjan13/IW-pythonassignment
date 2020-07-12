@@ -12,10 +12,13 @@ class Courses:
             {"C_id": "C07","Course_Name": "PYTHON", "Duration": "2 weeks", "Time": "1hr"},
             {"C_id": "C08","Course_Name": "R", "Duration": "4 weeks", "Time": "2hr"}
             ]
+    
+    def __init__(self):
+        self.path = os.path.dirname(os.path.abspath(__file__))
 
     def listToCsv(self):
         keys = self.coursesList[0].keys()
-        with open('csvfiles/course.csv', 'w') as write_file:
+        with open(self.path + '/csvfiles/course.csv', 'w') as write_file:
             dict_writer = csv.DictWriter(write_file, keys)
             dict_writer.writeheader()
             dict_writer.writerows(self.coursesList)
