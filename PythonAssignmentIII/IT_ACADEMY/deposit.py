@@ -11,7 +11,7 @@ class Deposit:
     def payment(self):
         print(f"Total cost of the course is Rs. {self.totalCourseBalance}.\
             \nYou can pay the full amount at once or You can pay 50% in the first month and rest in the later month.")
-        amount = input("Enter the amount you want to deposit.: ")
+        amount = input("Enter the amount you want to deposit: ")
         amount = amount.replace(',','')
         amount = int(amount)
         if amount >= 10000:

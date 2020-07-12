@@ -15,13 +15,13 @@ class Student:
     # register new students information
     def addInfo(self):
         newName = (self.name).title()
-        age = int(input("Age: "))
+        age = int(input("Age in numbers:"))
+          
         course = (input("Your preferred course ['C','C++','C#','JAVA','JAVASCRIPT','PYTHON','R','.NET']: ")).upper()
-        paid = dep.Deposit().payment()
         if course not in ['C','C++','C#','JAVA','JAVASCRIPT','PYTHON','R','.NET']:
             print("Course not available. Please recheck")
             self.addInfo()
-        
+        paid = dep.Deposit().payment()
         newRegistration = (newName, age, course, paid)
 
         return newRegistration
