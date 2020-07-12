@@ -38,7 +38,7 @@ class Academy(Student):
     # choose the option from menu
     def menu(self):
         print("Welcome to our IT Academy \n1. Existing Student Information \n2. New Registration \n3. Courses Inquiry\
-                \n4. Payment Information \n5. Leave the program \n6. Exit")
+                \n4. Payment Information \n5. Leave the Course \n6. Exit")
         choice = int(input("Enter the number You would like to know about: "))
 
         if choice == 1:
@@ -67,8 +67,10 @@ class Academy(Student):
             balance = self.totalDue()
             if balance == self.totalCourseBalance:
                 print("You have no remaining dues")
-            else:
+            elif balance == 10000:
                 print("Your Remaining Balance is: Rs", balance)
+            else:
+                print("Invalid command")
 
         if choice == 5:
             return self.leaveProgram()
@@ -85,40 +87,44 @@ class Academy(Student):
                 data.append(row)
         
         result_list = [(stdname, stdage, stdcourse, stddue) for stdname, stdage, stdcourse, stddue in data if stdname == (self.name).title()]
-        print(result_list)
+        result = [(stdname, stdage, stdcourse, stddue) for stdname, stdage, stdcourse, stddue in data if stdname != (self.name).title()]
+
         for _, _,_, stddue in result_list:
-            due = int(stddue)
-        return due
+            result = int(stddue)
+        return result
 
     # leave the program and delete the info from csv file
     def leaveProgram(self):
-        verify = input("Enter yes to leave the program else no: ")
-        if verify.lower() == 'yes':
-            name = (self.name).title()
+        name = (self.name).title()
+        lines = list()
+        with open('csvfiles/list.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+        res = name in (item for sublist in lines for item in sublist)
+        if str(res) == True:
 
-            lines = list()
-            with open('csvfiles/list.csv', 'r') as readFile:
-                reader = csv.reader(readFile)
-                for row in reader:
-                    lines.append(row)
+            verify = input("Enter yes to leave the program else no: ")
+            if verify.lower() == 'yes':
 
-            result_list = [(stdname, stdage, stdcourse, stddue) for stdname, stdage, stdcourse, stddue in lines if stdname != name]
+                result_list = [(stdname, stdage, stdcourse, stddue) for stdname, stdage, stdcourse, stddue in lines if stdname != name]
 
-            balance = self.totalDue()
-            if balance == self.totalCourseBalance:
-                print("Your balance has been fully refunded")
-            else:
-                print(f"Your payment {balance} has been refunded")
+                balance = self.totalDue()
+                if balance == self.totalCourseBalance:
+                    print("Your balance has been fully refunded")
+                else:
+                    print(f"Your payment {balance} has been refunded")
 
-            with open('csvfiles/list.csv', 'w') as writeFile:
-                writer = csv.writer(writeFile)
-                writer.writerows(result_list)
-            
-            print("You have left the program")
+                with open('csvfiles/list.csv', 'w') as writeFile:
+                    writer = csv.writer(writeFile)
+                    writer.writerows(result_list)
+                
+                print("You have left the program")
 
-        elif verify == 'no':
-            print("You are still in our Academy. Thank You")
-
+            elif verify == 'no':
+                print("You are still in our Academy. Thank You")
+        else:
+            print("Invalid command")
 
 studentName = input("Enter your Name:")
 main = Academy(studentName)
