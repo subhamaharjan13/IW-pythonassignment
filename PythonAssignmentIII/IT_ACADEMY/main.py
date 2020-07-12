@@ -124,7 +124,7 @@ class Academy(Student):
             elif verify == 'no':
                 print("You are still in our Academy. Thank You")
         else:
-            print("Invalid command")
+            print("You cannot leave the course as you are not a student of our academy.")
 
 studentName = input("Enter your Name:")
 main = Academy(studentName)
